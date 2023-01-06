@@ -9,9 +9,9 @@ import org.springframework.util.StringUtils;
 public class SenhaUsuario {
     private String senhaCriptografada;
 
-    public SenhaUsuario(String senhaNormal) {
-        Assert.state(StringUtils.hasText(senhaNormal), "senhaNormal não pode ser nulo ou vazio");
-        this.senhaCriptografada = new Base64().encodeAsString(senhaNormal.getBytes());
+    public SenhaUsuario(String senhaLimpa) {
+        Assert.state(StringUtils.hasText(senhaLimpa), "senhaNormal não pode ser nulo ou vazio");
+        this.senhaCriptografada = new Base64().encodeAsString(senhaLimpa.getBytes());
     }
 
     @Deprecated

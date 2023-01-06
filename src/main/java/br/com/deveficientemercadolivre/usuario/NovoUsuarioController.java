@@ -1,5 +1,6 @@
 package br.com.deveficientemercadolivre.usuario;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ public class NovoUsuarioController {
     }
 
     @PostMapping
+    @Transactional
     public void novoUsuario(@RequestBody @Valid NovoUsuarioRequest request) {
         var usuario = request.toModel();
         usuarioRepository.save(usuario);

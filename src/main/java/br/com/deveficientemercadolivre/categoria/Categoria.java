@@ -34,4 +34,8 @@ public class Categoria {
     @Deprecated
     public Categoria() {
     }
+
+    public Long getId() {
+        return id;
+    }
 }

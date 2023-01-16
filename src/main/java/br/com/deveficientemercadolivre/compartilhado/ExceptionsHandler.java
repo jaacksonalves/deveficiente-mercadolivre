@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
@@ -59,7 +56,7 @@ public class ExceptionsHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(INTERNAL_SERVER_ERROR)
     public ExceptionsHandlerResponse exceptionHandler(Exception ex) {
-        logger.error("exceptionHandler: " + ex.getMessage());
+        logger.error("exceptionHandler: " + ex.toString());
 
         var map = new HashMap<String, List<String>>();
         map.put("erro", List.of("Desculpe, um erro inesperado ocorreu"));
